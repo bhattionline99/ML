@@ -1,0 +1,536 @@
+
+R version 3.5.2 (2018-12-20) -- "Eggshell Igloo"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> 
+> 
+> library(e1071)
+> library(caret)
+Loading required package: lattice
+Loading required package: ggplot2
+> ECHO=TRUE
+> library(rpart)
+> library(rpart.plot)
+> install.packages('rpart.plot', dependencies = TRUE)
+Installing package into ‘D:/userdata/gbhatti/My Documents/R/win-library/3.5’
+(as ‘lib’ is unspecified)
+--- Please select a CRAN mirror for use in this session ---
+trying URL 'https://cran.revolutionanalytics.com/bin/windows/contrib/3.5/rpart.plot_3.0.6.zip'
+Content type 'application/zip' length 1065019 bytes (1.0 MB)
+downloaded 1.0 MB
+
+package ‘rpart.plot’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\gbhatti\AppData\Local\Temp\RtmpUBP7VY\downloaded_packages
+> library(rpart.plot)
+> library(rattle)
+Error in library(rattle) : there is no package called ‘rattle’
+> install.packages('rattle', dependencies = TRUE)
+Installing package into ‘D:/userdata/gbhatti/My Documents/R/win-library/3.5’
+(as ‘lib’ is unspecified)
+Warning: dependency ‘playwith’ is not available
+also installing the dependencies ‘ucminf’, ‘ordinal’, ‘dotCall64’, ‘lmtest’, ‘TSP’, ‘qap’, ‘gclus’, ‘dendextend’, ‘registry’, ‘crosstalk’, ‘DEoptimR’, ‘pan’, ‘jomo’, ‘rematch’, ‘spam’, ‘scatterplot3d’, ‘vcd’, ‘seriation’, ‘igraph’, ‘DT’, ‘plotly’, ‘visNetwork’, ‘flexclust’, ‘additivityTests’, ‘timeSeries’, ‘gss’, ‘stabledist’, ‘mclust’, ‘flexmix’, ‘prabclus’, ‘diptest’, ‘robustbase’, ‘trimcluster’, ‘pacman’, ‘gWidgets’, ‘broom’, ‘mitml’, ‘mnormt’, ‘cellranger’, ‘progress’, ‘NLP’, ‘slam’, ‘fields’, ‘CircStats’, ‘dtw’, ‘clv’, ‘XML’, ‘pmml’, ‘ada’, ‘amap’, ‘arules’, ‘arulesViz’, ‘biclust’, ‘cairoDevice’, ‘cba’, ‘descr’, ‘doBy’, ‘fBasics’, ‘fpc’, ‘ggdendro’, ‘ggraptR’, ‘gWidgetsRGtk2’, ‘hmeasure’, ‘mice’, ‘psych’, ‘rattle.data’, ‘readxl’, ‘reshape’, ‘rggobi’, ‘RGtk2’, ‘RODBC’, ‘SnowballC’, ‘tm’, ‘verification’, ‘wskm’, ‘RGtk2Extras’, ‘xgboost’
+
+
+  There is a binary version available but the source version is later:
+        binary source needs_compilation
+flexmix 2.3-14 2.3-15             FALSE
+
+The downloaded binary packages are in
+        C:\Users\gbhatti\AppData\Local\Temp\RtmpUBP7VY\downloaded_packages
+installing the source package ‘flexmix’
+
+trying URL 'https://cran.revolutionanalytics.com/src/contrib/flexmix_2.3-15.tar.gz'
+Content type 'application/octet-stream' length 1176059 bytes (1.1 MB)
+downloaded 1.1 MB
+
+* installing *source* package 'flexmix' ...
+** package 'flexmix' successfully unpacked and MD5 sums checked
+** R
+** data
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+  converting help for package 'flexmix'
+    finding HTML links ... done
+    AIC-methods                             html  
+    BIC-methods                             html  
+    BregFix                                 html  
+    EIC                                     html  
+    ExLinear                                html  
+    ExNPreg                                 html  
+    ExNclus                                 html  
+    FLXMCdist1                              html  
+    FLXMCfactanal                           html  
+    FLXMCmvcombi                            html  
+    FLXMCmvpois                             html  
+    FLXMRcondlogit                          html  
+    FLXMRglmnet                             html  
+    FLXMRlmer                               html  
+    FLXMRlmmc                               html  
+    FLXMRmgcv                               html  
+    FLXMRmultinom                           html  
+    FLXMRrobglm                             html  
+    FLXMRziglm                              html  
+    FLXP-class                              html  
+    FLXbclust                               html  
+    FLXcomponent-class                      html  
+    FLXconcomitant                          html  
+    FLXcontrol-class                        html  
+    FLXdist-class                           html  
+    FLXdist                                 html  
+    FLXfit                                  html  
+    FLXglm                                  html  
+    FLXglmFix                               html  
+    FLXmclust                               html  
+    FLXmodel-class                          html  
+    FLXnested-class                         html  
+    ICL                                     html  
+    KLdiv                                   html  
+    Lapply-methods                          html  
+    Mehta                                   html  
+    NregFix                                 html  
+    betablocker                             html  
+    bioChemists                             html  
+    boot                                    html  
+    candy                                   html  
+    dmft                                    html  
+    fabricfault                             html  
+    fitted                                  html  
+    flexmix-class                           html  
+    flexmix-internal                        html  
+    flexmix                                 html  
+    group                                   html  
+    logLik-methods                          html  
+    patent                                  html  
+    plot-methods                            html  
+    plotEll                                 html  
+    posterior                               html  
+    refit                                   html  
+    relabel                                 html  
+    rflexmix                                html  
+    salmonellaTA98                          html  
+    seizure                                 html  
+    stepFlexmix                             html  
+    tribolium                               html  
+    trypanosome                             html  
+    whiskey                                 html  
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+*** arch - i386
+*** arch - x64
+* DONE (flexmix)
+In R CMD INSTALL
+
+The downloaded source packages are in
+        ‘C:\Users\gbhatti\AppData\Local\Temp\RtmpUBP7VY\downloaded_packages’
+> library(randomForest)
+randomForest 4.6-14
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: ‘randomForest’
+
+The following object is masked from ‘package:ggplot2’:
+
+    margin
+
+> library(corrplot)
+corrplot 0.84 loaded
+> PMLtesting<-read.csv(file="D:/Personal/Coursera Educational Learning/Practical ML/Assignment/Assignment data/pml-testing.csv",head=TRUE,sep=",")
+> PMLtraining<-read.csv(file="D:/Personal/Coursera Educational Learning/Practical ML/Assignment/Assignment data/pml-training.csv",head=TRUE,sep=",")
+> inTrain  <- createDataPartition(training$classe, p=0.7, list=FALSE)
+Error in createDataPartition(training$classe, p = 0.7, list = FALSE) : 
+  object 'training' not found
+>  install.packages('caret', dependencies = TRUE)
+Installing package into ‘D:/userdata/gbhatti/My Documents/R/win-library/3.5’
+(as ‘lib’ is unspecified)
+Warning: package ‘caret’ is in use and will not be installed
+> install.packages('gtable', dependencies = TRUE)
+Installing package into ‘D:/userdata/gbhatti/My Documents/R/win-library/3.5’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.revolutionanalytics.com/bin/windows/contrib/3.5/gtable_0.2.0.zip'
+Content type 'application/zip' length 85758 bytes (83 KB)
+downloaded 83 KB
+
+package ‘gtable’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\gbhatti\AppData\Local\Temp\RtmpUBP7VY\downloaded_packages
+> install.packages('ggplot2', dependencies = TRUE)
+Installing package into ‘D:/userdata/gbhatti/My Documents/R/win-library/3.5’
+(as ‘lib’ is unspecified)
+Warning: package ‘ggplot2’ is in use and will not be installed
+> install.packages('gower', dependencies = TRUE)
+Installing package into ‘D:/userdata/gbhatti/My Documents/R/win-library/3.5’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.revolutionanalytics.com/bin/windows/contrib/3.5/gower_0.1.2.zip'
+Content type 'application/zip' length 125805 bytes (122 KB)
+downloaded 122 KB
+
+package ‘gower’ successfully unpacked and MD5 sums checked
+Warning: cannot remove prior installation of package ‘gower’
+
+The downloaded binary packages are in
+        C:\Users\gbhatti\AppData\Local\Temp\RtmpUBP7VY\downloaded_packages
+> inTrain  <- createDataPartition(training$classe, p=0.7, list=FALSE)
+Error in createDataPartition(training$classe, p = 0.7, list = FALSE) : 
+  object 'training' not found
+> inTrain  <- createDataPartition(PMLtraining$classe, p=0.7, list=FALSE)
+> PMLTrainSet <- PMLtraining[inTrain, ]
+> PMLTestSet  <- PMLtraining[-inTrain, ]
+> dim(PMLTrainSet)
+[1] 13737   160
+> dim(TestSet)
+Error: object 'TestSet' not found
+> dim(PMLTestSet)
+[1] 5885  160
+> nzerovar <- nearZeroVar(PMLTrainSet)
+> PMLTrainSet <- PMLTrainSet[, -nzerovar]
+> PMLTestSet  <- PMLTestSet[, -nzerovar]
+> dim(PMLTrainSet)
+[1] 13737   104
+> dim(PMLTestSet)
+[1] 5885  104
+> AllNotAvailable <- sapply(PMLTrainSet, function(x) mean(is.na(x))) > 0.95
+> PMLTrainSet <- PMLTrainSet[, AllNotAvailable==FALSE]
+> PMLTestSet <- PMLTestSet[, AllNotAvailable==FALSE]
+> dim(PMLTrainSet)
+[1] 13737    59
+> dim(PMLTestSet)
+[1] 5885   59
+> PMLTrainSet <- PMLTrainSet[, -(1:5)]
+> TestSet  <- PMLTestSet[, -(1:5)]
+> PMLTestSet  <- PMLTestSet[, -(1:5)]
+> dim(PMLTrainSet)
+[1] 13737    54
+> dim(PMLTestSet)
+[1] 5885   54
+> M <- cor(PMLTrainSet[, -54])
+> Matrix <- cor(PMLTrainSet[, -54])
+> corrplot(Matrix, method="circle")
+> set.seed(4508)
+> PMLcontrolRF <- trainControl(method="cv", number=3, verboseIter=FALSE)
+> modFitRandForest <- train(classe ~ ., data=PMLTrainSet, method="rf",trControl=PMLcontrolRF)
+
+> 
+> modFitRandForest <- train(classe ~ ., data=PMLTrainSet, method="rf",trControl=PMLcontrolRF)
+
+> set.seed(3408)
+> PMLcontrolRF <- trainControl(method="cv", number=3, verboseIter=FALSE)
+> modFitRandForest <- train(classe ~ ., data=PMLTrainSet, method="rf",trControl=PMLcontrolRF)
+
+> modFitRandForest <- train(classe ~ ., data=PMLTrainSet, method="rf",trControl=PMLcontrolRF)
+
+> > 
+> 
+> modFitRandForest <- train(classe ~ ., data=PMLTrainSet, method="rf",trControl=PMLcontrolRF)
+
+> set.seed(3408)
+> set.seed(34)
+> PMLcontrolRF <- trainControl(method="cv", number=3, verboseIter=FALSE)
+> modFitRandForest <- train(classe ~ ., data=PMLTrainSet, method="rf",trControl=PMLcontrolRF)
+
+>  modFitRandForest <- train(classe ~ ., data=PMLTrainSet, method="rf",trControl=PMLcontrolRF)
+
+> ls()
+ [1] "AllNotAvailable"  "ECHO"             "inTrain"          "M"                "Matrix"           "modFitRandForest" "nzerovar"         "PMLcontrolRF"     "PMLtesting"       "PMLTestSet"      
+[11] "PMLtraining"      "PMLTrainSet"      "TestSet"         
+> modFitRandForest$finalModel
+
+Call:
+ randomForest(x = x, y = y, mtry = param$mtry) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 27
+
+        OOB estimate of  error rate: 0.26%
+Confusion matrix:
+     A    B    C    D    E  class.error
+A 3904    2    0    0    0 0.0005120328
+B    5 2651    2    0    0 0.0026335591
+C    0    6 2390    0    0 0.0025041736
+D    0    0   11 2240    1 0.0053285968
+E    0    1    0    8 2516 0.0035643564
+> predictRandForest <- predict(modFitRandForest, newdata=TestSet)
+> confMatRandForest <- confusionMatrix(predictRandForest, TestSet$classe)
+> confMatRandForest
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    A    B    C    D    E
+         A 1674    3    0    0    0
+         B    0 1136    2    0    0
+         C    0    0 1024    8    0
+         D    0    0    0  956    1
+         E    0    0    0    0 1081
+
+Overall Statistics
+                                         
+               Accuracy : 0.9976         
+                 95% CI : (0.996, 0.9987)
+    No Information Rate : 0.2845         
+    P-Value [Acc > NIR] : < 2.2e-16      
+                                         
+                  Kappa : 0.997          
+ Mcnemar's Test P-Value : NA             
+
+Statistics by Class:
+
+                     Class: A Class: B Class: C Class: D Class: E
+Sensitivity            1.0000   0.9974   0.9981   0.9917   0.9991
+Specificity            0.9993   0.9996   0.9984   0.9998   1.0000
+Pos Pred Value         0.9982   0.9982   0.9922   0.9990   1.0000
+Neg Pred Value         1.0000   0.9994   0.9996   0.9984   0.9998
+Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839
+Detection Rate         0.2845   0.1930   0.1740   0.1624   0.1837
+Detection Prevalence   0.2850   0.1934   0.1754   0.1626   0.1837
+Balanced Accuracy      0.9996   0.9985   0.9982   0.9957   0.9995
+> plot(confMatRandForest$table, col = confMatRandForest$byClass,
++ main = paste("Random Forest Model - Accuracy =",
++ round(confMatRandForest$overall['Accuracy'], 4)))
+> plot(confMatRandForest$table, col = confMatRandForest$byClass,main = paste("Random Forest - Accuracy =",round(confMatRandForest$overall['Accuracy'], 4)))
+> 
+> 
+> confMatRandForest$table,
+Error: unexpected ',' in "confMatRandForest$table,"
+> confMatRandForest$table
+          Reference
+Prediction    A    B    C    D    E
+         A 1674    3    0    0    0
+         B    0 1136    2    0    0
+         C    0    0 1024    8    0
+         D    0    0    0  956    1
+         E    0    0    0    0 1081
+> library(RColorBrewer)
+> library(rattle)
+Rattle: A free graphical interface for data science with R.
+Version 5.2.0 Copyright (c) 2006-2018 Togaware Pty Ltd.
+Type 'rattle()' to shake, rattle, and roll your data.
+
+Attaching package: ‘rattle’
+
+The following object is masked from ‘package:randomForest’:
+
+    importance
+
+> fancyRpartPlot(modFitDecTree)
+Warning message:
+labs do not fit even at cex 0.15, there may be some overplotting 
+> set.seed(34)
+> modFitDecTree <- rpart(classe ~ ., data=PMLTrainSet, method="class")
+> fancyRpartPlot(modFitDecTree)
+Warning message:
+labs do not fit even at cex 0.15, there may be some overplotting 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> predictDecTree <- predict(modFitDecTree, newdata=PMLTestSet, type="class")
+> confMatDecTree <- confusionMatrix(predictDecTree, TestSet$classe)
+> confMatDecTree
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    A    B    C    D    E
+         A 1514  172   42   42   12
+         B   97  820   63   40   46
+         C   15   71  862   43    6
+         D   44   49   45  772   99
+         E    4   27   14   67  919
+
+Overall Statistics
+                                          
+               Accuracy : 0.8304          
+                 95% CI : (0.8206, 0.8399)
+    No Information Rate : 0.2845          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.7851          
+ Mcnemar's Test P-Value : 6.028e-08       
+
+Statistics by Class:
+
+                     Class: A Class: B Class: C Class: D Class: E
+Sensitivity            0.9044   0.7199   0.8402   0.8008   0.8494
+Specificity            0.9364   0.9482   0.9722   0.9518   0.9767
+Pos Pred Value         0.8496   0.7692   0.8646   0.7651   0.8914
+Neg Pred Value         0.9610   0.9338   0.9664   0.9606   0.9664
+Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839
+Detection Rate         0.2573   0.1393   0.1465   0.1312   0.1562
+Detection Prevalence   0.3028   0.1811   0.1694   0.1715   0.1752
+Balanced Accuracy      0.9204   0.8340   0.9062   0.8763   0.9130
+> plot(confMatDecTree$table, col = confMatDecTree$byClass, main = paste("Decision Tree - Accuracy =",round(confMatDecTree$overall['Accuracy'], 4)))
+> plot(confMatDecTree$table, col = confMatDecTree$byClass, main = paste("Decision Tree - Accuracy =",round(confMatDecTree$overall['Accuracy'], 4)))
+> predictTEST <- predict(modFitRandForest, newdata=testing)
+Error in predict.train(modFitRandForest, newdata = testing) : 
+  object 'testing' not found
+> predictTEST
+Error: object 'predictTEST' not found
+> 
+> ECHO=TRUE
+> library(e1071)
+> library(caret)
+> library(rpart)
+> library(rpart.plot)
+> library(rattle)
+> library(randomForest)
+> library(corrplot)
+> Matrix <- cor(TrainSet[, -54])
+Error in is.data.frame(x) : object 'TrainSet' not found
+> Matrix <- cor(PMLTrainSet[, -54])
+> corrplot(M, method="circle")
+> ls()
+ [1] "AllNotAvailable"   "confMatDecTree"    "confMatRandForest" "ECHO"              "inTrain"           "M"                 "Matrix"            "modFitDecTree"     "modFitRandForest" 
+[10] "nzerovar"          "PMLcontrolRF"      "PMLtesting"        "PMLTestSet"        "PMLtraining"       "PMLTrainSet"       "predictDecTree"    "predictRandForest" "TestSet"          
+> search()
+ [1] ".GlobalEnv"           "package:rattle"       "package:RColorBrewer" "package:corrplot"     "package:randomForest" "package:rpart.plot"   "package:rpart"        "package:caret"       
+ [9] "package:ggplot2"      "package:lattice"      "package:e1071"        "package:stats"        "package:graphics"     "package:grDevices"    "package:utils"        "package:datasets"    
+[17] "package:methods"      "Autoloads"            "package:base"        
+> local({fn<-choose.files(filters=Filters[c('R','txt','All'),],index=4)
++ file.show(fn,header=fn,title='')})
+> corrplot(Matrix, method="circle")
+> Matrix <- cor(TrainSet[, -54])
+Error in is.data.frame(x) : object 'TrainSet' not found
+> Matrix <- cor(PMLTrainSet[, -54])
+> corrplot(Matrix, method="circle")
+> corrplot(Matrix, method="circle")
+> 
+> 
+> set.seed(3434)
+> controlRF <- trainControl(method="cv", number=3, verboseIter=FALSE)
+> modFitRandForest <- train(classe ~ ., data=TrainSet, method="rf",
++ 
+
++ > controlRF <- trainControl(method="cv", number=3, verboseIter=FALSE)modFitRandForest <- train(classe ~ ., data=PMLTrainSet, method="rf",trControl=controlRF)
+Error: unexpected symbol in "controlRF <- trainControl(method="cv", number=3, verboseIter=FALSE)modFitRandForest"
+> controlRF <- trainControl(method="cv", number=3, verboseIter=FALSE)
+> modFitRandForest <- train(classe ~ ., data=PMLTrainSet, method="rf",
++ trControl=controlRF)
+
+> modFitRandForest <- train(classe ~ ., data=PMLTrainSet, method="rf",
++ trControl=PMLcontrolRF)
+
+> modFitRandForest$finalModel
+
+Call:
+ randomForest(x = x, y = y, mtry = param$mtry) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 27
+
+        OOB estimate of  error rate: 0.26%
+Confusion matrix:
+     A    B    C    D    E  class.error
+A 3904    2    0    0    0 0.0005120328
+B    5 2651    2    0    0 0.0026335591
+C    0    6 2390    0    0 0.0025041736
+D    0    0   11 2240    1 0.0053285968
+E    0    1    0    8 2516 0.0035643564
+> predictRandForest <- predict(modFitRandForest, newdata=PMLTestSet)
+> confMatRandForest <- confusionMatrix(predictRandForest, TestSet$classe)
+> confMatRandForest
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    A    B    C    D    E
+         A 1674    3    0    0    0
+         B    0 1136    2    0    0
+         C    0    0 1024    8    0
+         D    0    0    0  956    1
+         E    0    0    0    0 1081
+
+Overall Statistics
+                                         
+               Accuracy : 0.9976         
+                 95% CI : (0.996, 0.9987)
+    No Information Rate : 0.2845         
+    P-Value [Acc > NIR] : < 2.2e-16      
+                                         
+                  Kappa : 0.997          
+ Mcnemar's Test P-Value : NA             
+
+Statistics by Class:
+
+                     Class: A Class: B Class: C Class: D Class: E
+Sensitivity            1.0000   0.9974   0.9981   0.9917   0.9991
+Specificity            0.9993   0.9996   0.9984   0.9998   1.0000
+Pos Pred Value         0.9982   0.9982   0.9922   0.9990   1.0000
+Neg Pred Value         1.0000   0.9994   0.9996   0.9984   0.9998
+Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839
+Detection Rate         0.2845   0.1930   0.1740   0.1624   0.1837
+Detection Prevalence   0.2850   0.1934   0.1754   0.1626   0.1837
+Balanced Accuracy      0.9996   0.9985   0.9982   0.9957   0.9995
+> plot(confMatRandForest$table, col = confMatRandForest$byClass,main = paste("Random Forest - Accuracy =",round(confMatRandForest$overall['Accuracy'], 4)))
+> set.seed(3434)
+Warning messages:
+1: unable to open printer 
+2: opening device failed 
+> modFitDecTree <- rpart(classe ~ ., data=PMLTrainSet, method="class")
+> fancyRpartPlot(modFitDecTree)
+Warning message:
+labs do not fit even at cex 0.15, there may be some overplotting 
+> predictDecTree <- predict(modFitDecTree, newdata=PMLTestSet, type="class")
+> confMatDecTree <- confusionMatrix(predictDecTree, TestSet$classe)
+> confMatDecTree
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    A    B    C    D    E
+         A 1514  172   42   42   12
+         B   97  820   63   40   46
+         C   15   71  862   43    6
+         D   44   49   45  772   99
+         E    4   27   14   67  919
+
+Overall Statistics
+                                          
+               Accuracy : 0.8304          
+                 95% CI : (0.8206, 0.8399)
+    No Information Rate : 0.2845          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.7851          
+ Mcnemar's Test P-Value : 6.028e-08       
+
+Statistics by Class:
+
+                     Class: A Class: B Class: C Class: D Class: E
+Sensitivity            0.9044   0.7199   0.8402   0.8008   0.8494
+Specificity            0.9364   0.9482   0.9722   0.9518   0.9767
+Pos Pred Value         0.8496   0.7692   0.8646   0.7651   0.8914
+Neg Pred Value         0.9610   0.9338   0.9664   0.9606   0.9664
+Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839
+Detection Rate         0.2573   0.1393   0.1465   0.1312   0.1562
+Detection Prevalence   0.3028   0.1811   0.1694   0.1715   0.1752
+Balanced Accuracy      0.9204   0.8340   0.9062   0.8763   0.9130
+> plot(confMatDecTree$table, col = confMatDecTree$byClass,main = paste("Decision Tree - Accuracy =",round(confMatDecTree$overall['Accuracy'], 4)))
+> predictTEST <- predict(modFitRandForest, newdata=PMLtesting)
+> predictTEST
+ [1] B A B A A E D B A A B C B A E E A B B B
+Levels: A B C D E
+> 
